@@ -1,0 +1,27 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "loose": true,
+        "modules": false,
+        "targets": {
+          "browsers": "last 2 versions"
+        },
+        "production": {
+          "plugins": [
+            ["transform-class-properties", { "loose": true }]
+          ]
+        },
+        "development": {
+          "plugins": [
+            "react-hot-loader/babel",
+            ["transform-class-properties", { "loose": true }]
+          ]
+        }
+      }
+    ],
+    "react",
+    "stage-0"
+  ]
+}

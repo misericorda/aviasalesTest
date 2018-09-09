@@ -1,0 +1,45 @@
+.status-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.icon__trend {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-color: $primary;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  z-index: 3;
+  .icon__status {
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background-color: $success;
+  }
+  svg {
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    line-height: 48px;
+  }
+}
+
+.icon__next {
+  position: relative;
+  top: -10px;
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+}

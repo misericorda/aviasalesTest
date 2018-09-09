@@ -1,0 +1,46 @@
+.event_stats {
+  .badge {
+    line-height: inherit;
+    color: #fff;
+    font-weight: 400;
+    margin-left: 5px;
+    border-radius: 500px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.event_stat__main {
+  flex-grow: 3;
+  padding-bottom: 30px;
+}
+
+.event_stat:not(:last-child) {
+  margin-bottom: 20px;
+}
+.event_stat:not(:last-child) .event_stats__main {
+  border-bottom: 1px solid $light-grey;
+}
+
+.event_stat__icon {
+  margin-right: 20px;
+  position: relative;
+}
+
+.event_stat__title {
+  font-weight: 600;
+  font-size: 16px;
+}
+.event_stat__numbers {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.event_stat__numbers__sub {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.event_stat__info {
+  //margin-left: 50px;
+}

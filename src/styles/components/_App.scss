@@ -1,0 +1,29 @@
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: #E5E5E5;
+  border: 1px solid transparent;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.main__wrapper {
+  width: 748px;
+  height: 775px;
+  margin: 138px auto 140px auto;
+  background-color: #fff;
+  padding: 40px 100px 40px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  color: #4A4A4A;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.main__title {
+  margin-bottom: 24px;
+}
+
+.util__fixed-20 {
+  width: 20px;
+  display: inline-block;
+}
+
