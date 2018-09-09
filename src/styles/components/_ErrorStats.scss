@@ -1,10 +1,8 @@
 .error_stats {
   margin: 44px 0 44px 0;
+  font-weight: 600;
 }
 
-.error_stat {
-  margin-right: 36px;
-}
 .error_stat__title {
   font-size: 16px;
   font-weight: bolder;
@@ -28,7 +26,7 @@
 }
 
 .error_stats_bar__legend__item {
-  margin-right: 30px;
+  margin-right: 40px;
   font-size: 12px;
   font-weight: 600;
   .status-icon {

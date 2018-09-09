@@ -1,25 +1,26 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
+export const LoadingSpinner = () => <FontAwesomeIcon icon="circle-notch" spin size="6x"/>;
 
-export const NextIcon = () => <div className="icon__next">{getIcon('next')}</div>;
+export const NextIcon = () => <div className="icon__next">{getIcon("next")}</div>;
 
-export const TrendIcon = ({name, status = 'success'}) => (
+export const TrendIcon = ({name, status = "success"}) => (
   <div className="icon__trend">
     {getIcon(name)}
     <span className={`icon__status bg-${status}`}> </span>
   </div>
 );
 
-export const StatusIcon = ({color = 'success', round, className = ''}) => {
-  let cName = 'status-icon bg-' + color;
-  cName = round ? cName + ' rounded-circle' : cName;
-  cName = className ? cName + ' ' + className : cName;
+export const StatusIcon = ({color = "success", round, className = ""}) => {
+  let cName = "status-icon bg-" + color;
+  cName = round ? cName + " rounded-circle" : cName;
+  cName = className ? cName + " " + className : cName;
   return <span className={cName}> </span>
 };
 
 const getIcon = name => {
   switch (name) {
-    case 'click':
+    case "click":
       return (
         <svg width="15" height="21" viewBox="0 0 15 21" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd"
@@ -27,7 +28,7 @@ const getIcon = name => {
                 fill="white"/>
         </svg>
       );
-    case 'next':
+    case "next":
       return (
         <svg width="11" height="82" viewBox="0 0 11 82" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path opacity="0.220392"

@@ -1,31 +1,15 @@
 import React, {Component} from "react";
 import {StatusIcon} from "../ui/Icons"
 
-const DISPLAY_ERRORS = [500, 501, 502];
-
-const parseErrorData = data => {
-  // Count numbers of errors in each category (500,501,502), others go to 'other' category
-  let errorDispersion = Object({other: 0});
-  data.map(({code, count}) => (
-    ~DISPLAY_ERRORS.indexOf(code)
-      ? errorDispersion["e" + code] = count
-      : errorDispersion["other"] += count
-  ));
-  return errorDispersion;
-};
-
-const ErrorStats = ({data = {}, selectedPeriod}) => {
-  let errorKey = "errors_" + selectedPeriod;
-  let errorData = data[errorKey] || [];
-  let actualData = data.data ? data.data[0] : {};
+const ErrorStats = ({data = {}}) => {
   return (
     <div className="error_stats">
-      <div className="error_stats__values d-flex">
-        <ErrorStat name="Errors" value={actualData[errorKey] || 0}/>
-        <ErrorStat name="Zeroes" value={actualData["zeroes_" + selectedPeriod] || 0}/>
-        <ErrorStat name="Timeouts" value={actualData["timeout" + selectedPeriod] || 0}/>
+      <div className="error_stats__values d-flex justify-content-between">
+        <ErrorStat name="Errors" value={data.errors || 0}/>
+        <ErrorStat name="Zeroes" value={data.zeroes || 0}/>
+        <ErrorStat name="Timeouts" value={data.timeouts || 0}/>
       </div>
-      <ErrorDispersionBar {...parseErrorData(errorData)}/>
+      <ErrorDispersionBar {...data.errorsDispersion}/>
     </div>
   )
 };
@@ -36,7 +20,7 @@ const ErrorStat = ({name, value, avgPercent = 0.11}) => (
       <span className="util__fixed-20">
         <StatusIcon round color={value < avgPercent ? "success" : "warning"}/>
       </span>
-      <span>{`${name}: ${value.toFixed(2)}%`}</span>
+      <span>{`${name}: ${value}%`}</span>
     </div>
     <div className="error_stat__avg">
       <span className="util__fixed-20"> </span>

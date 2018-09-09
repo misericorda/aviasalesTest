@@ -1,24 +1,23 @@
 .event_stats {
   .badge {
-    line-height: inherit;
+    line-height: 14px;
     color: #fff;
-    font-weight: 400;
-    margin-left: 5px;
+    font-size: 12px;
+    margin-left: 15px;
     border-radius: 500px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 3px 10px;
   }
 }
 
-.event_stat__main {
+.event_stat__content {
   flex-grow: 3;
-  padding-bottom: 30px;
+  padding-bottom: 36px;
 }
 
 .event_stat:not(:last-child) {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
-.event_stat:not(:last-child) .event_stats__main {
+.event_stat:not(:last-child) .event_stat__content {
   border-bottom: 1px solid $light-grey;
 }
 
@@ -30,11 +29,13 @@
 .event_stat__title {
   font-weight: 600;
   font-size: 16px;
+  margin-bottom: 10px;
 }
 .event_stat__numbers {
   font-size: 20px;
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
 }
 .event_stat__numbers__sub {
   font-size: 12px;
