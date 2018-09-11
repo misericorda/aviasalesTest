@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {StatusIcon} from "../ui/Icons"
+import React from "react";
+import {StatusIcon} from "../ui/Icons";
 
 const ErrorStats = ({data = {}}) => {
   return (
@@ -11,7 +11,7 @@ const ErrorStats = ({data = {}}) => {
       </div>
       <ErrorDispersionBar {...data.errorsDispersion}/>
     </div>
-  )
+  );
 };
 
 const ErrorStat = ({name, value, avgPercent = 0.11}) => (
@@ -51,7 +51,7 @@ const ErrorDispersionBar = ({e500 = 0, e501 = 0, e502 = 0, other = 0}) => {
         <div className="error_stats_bar__legend__item"><StatusIcon color="secondary"/><span>Other: {other}</span></div>
       </div>
     </div>
-  )
+  );
 };
 
 

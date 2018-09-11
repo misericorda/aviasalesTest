@@ -1,6 +1,6 @@
-import React, {Component} from "react";
-import {TrendIcon, NextIcon} from "../ui/Icons"
-import {PERIODS_VERBOSE} from "../../constants"
+import React from "react";
+import {TrendIcon, NextIcon} from "../ui/Icons";
+import {PERIODS_VERBOSE} from "../../constants";
 
 
 const EventStats = ({data = {}, selectedPeriod}) => {
@@ -14,7 +14,7 @@ const EventStats = ({data = {}, selectedPeriod}) => {
         <p className="text-muted">You get 100% traffic on mobile and desktop devices.</p>
         <p>Help: <a href="#">Searches</a>, <a href="#">Pessimisation</a></p>
       </div>
-    )
+    );
   };
 
   const renderClicksInfo = () => (
@@ -36,29 +36,23 @@ const EventStats = ({data = {}, selectedPeriod}) => {
 
   return (
     <div className="event_stats">
-      <EventStat name="searches" icon="filter" {...data.searches}
-                 selectedPeriod={selectedPeriod}
+      <EventStat name="searches" icon="filter" {...data.searches} selectedPeriod={selectedPeriod}
                  infoBlockRenderer={renderSearchesInfo}/>
-      <EventStat name="clicks" icon="click" {...data.clicks}
-                 selectedPeriod={selectedPeriod}
+      <EventStat name="clicks" icon="click" {...data.clicks} selectedPeriod={selectedPeriod}
                  infoBlockRenderer={renderClicksInfo}/>
-      <EventStat name="bookings" icon="shopping-cart" {...data.bookings}
-                 selectedPeriod={selectedPeriod}
+      <EventStat name="bookings" icon="shopping-cart" {...data.bookings} selectedPeriod={selectedPeriod}
                  infoBlockRenderer={renderBookingInfo}/>
     </div>
-  )
+  );
 };
 
-const EventStat = ({
-                     name, icon, previous = 0, current = 0, percentChange = 0,
-                     selectedPeriod, infoBlockRenderer = f => f
-                   }) => {
+const EventStat = ({name, icon, previous = 0, current = 0, percentChange = 0, selectedPeriod, infoBlockRenderer = f => f}) => {
   let badge;
   let iconStatus = percentChange >= 0 ? "success" : "danger";
   if (percentChange) {
     badge = percentChange > 0
       ? <span className="badge badge-success">+{percentChange}%</span>
-      : <span className="badge badge-danger">{percentChange}%</span>
+      : <span className="badge badge-danger">{percentChange}%</span>;
   }
   return (
     <div className="event_stat d-flex">
@@ -88,7 +82,7 @@ const EventStat = ({
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default EventStats;

@@ -1,5 +1,5 @@
 import {createReducer} from "redux-create-reducer";
-import {METRICS_SET_DATA, METRICS_LOADING_STOP, METRICS_LOADING_START} from "../actions/actionTypes"
+import {METRICS_SET_DATA, METRICS_LOADING_STOP, METRICS_LOADING_START} from "../actions/actionTypes";
 
 const initialState = {
   isLoading: false,
@@ -8,13 +8,13 @@ const initialState = {
 
 
 const reducer = createReducer(initialState, {
-  [METRICS_LOADING_START](state, action) {
+  [METRICS_LOADING_START](state) {
     return {
       ...state,
       isLoading: true
     };
   },
-  [METRICS_LOADING_STOP](state, action) {
+  [METRICS_LOADING_STOP](state) {
     return {
       ...state,
       isLoading: false
@@ -24,7 +24,7 @@ const reducer = createReducer(initialState, {
     return {
       ...state,
       data: action.payload
-    }
+    };
   }
 });
 

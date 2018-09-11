@@ -1,3 +1,5 @@
+import React from "react";
+
 export const PeriodSelector = ({selected, onChange, choices}) => {
   const renderButton = ([name, verbose]) => (
     <a key={name} value="last-hour" onClick={() => onChange(name)}
@@ -8,5 +10,5 @@ export const PeriodSelector = ({selected, onChange, choices}) => {
     <nav className="periods d-inline-block">
       {choices.map(renderButton)}
     </nav>
-  )
+  );
 };

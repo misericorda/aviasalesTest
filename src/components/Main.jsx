@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {PeriodSelector} from "./Metrics/PeriodSelector"
-import ErrorStats from "./Metrics/ErrorStats"
-import EventStats from "./Metrics/EventStats"
-import {PERIODS_AVAILABLE} from "../constants"
-import {startGetMetricsData} from "../store/actions/metrics"
-import {LoadingSpinner} from "./ui/Icons"
+import {PeriodSelector} from "./Metrics/PeriodSelector";
+import ErrorStats from "./Metrics/ErrorStats";
+import EventStats from "./Metrics/EventStats";
+import {PERIODS_AVAILABLE} from "../constants";
+import {startGetMetricsData} from "../store/actions/metrics";
+import {LoadingSpinner} from "./ui/Icons";
 
 class Main extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Main extends Component {
       selectedPeriod: PERIODS_AVAILABLE[3][0],
       data: undefined,
       isLoading: false
-    }
+    };
   }
 
   componentDidMount() {
@@ -23,12 +23,13 @@ class Main extends Component {
   }
 
   handlePeriodChange = selectedPeriod => this.setState({selectedPeriod});
+
   render() {
     const {selectedPeriod} = this.state;
     const {data, isLoading} = this.props;
     let periodData;
     if (data) {
-      periodData = data[selectedPeriod]
+      periodData = data[selectedPeriod];
     }
     return (
       <div className="main">
@@ -45,7 +46,7 @@ class Main extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -1,4 +1,6 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import React from "react";
+
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export const LoadingSpinner = () => <FontAwesomeIcon icon="circle-notch" spin size="6x"/>;
 
@@ -15,7 +17,7 @@ export const StatusIcon = ({color = "success", round, className = ""}) => {
   let cName = "status-icon bg-" + color;
   cName = round ? cName + " rounded-circle" : cName;
   cName = className ? cName + " " + className : cName;
-  return <span className={cName}> </span>
+  return <span className={cName}> </span>;
 };
 
 const getIcon = name => {
@@ -44,6 +46,6 @@ const getIcon = name => {
         </svg>
       );
     default:
-      return <FontAwesomeIcon icon={name}/>
+      return <FontAwesomeIcon icon={name}/>;
   }
 };

@@ -1,9 +1,10 @@
 import axios from "axios";
-import {call, put, takeEvery, all, select} from "redux-saga/effects";
-import {METRICS_GET_DATA} from "../actions/actionTypes"
-import {API_URL} from "../../constants";
+import {put, takeEvery, all} from "redux-saga/effects";
+
+import {METRICS_GET_DATA,} from "../actions/actionTypes";
 import {startMetricsLoading, stopMetricsLoading, setMetricsData} from "../actions/metrics";
-import {PERIODS_AVAILABLE} from "../../constants";
+
+import {PERIODS_AVAILABLE, API_URL} from "../../constants";
 
 const ERRORS_TO_COUNT = [500, 501, 502];
 const EVENTS = ["bookings", "clicks", "searches"];
@@ -18,13 +19,13 @@ const parseMetricsData = (data) => {
   */
   let result = {};
   let statsData = data.data[0];
-  PERIODS_AVAILABLE.map(([period, verbose]) => {
+  PERIODS_AVAILABLE.map(([period,]) => {
     let errorsDispersion = {other: 0};
     let errorData = data["errors_" + period] || [];
     errorData.map(({count, code}) => {
       ~ERRORS_TO_COUNT.indexOf(code)
         ? errorsDispersion["e" + code] = count
-        : errorsDispersion["other"] += count
+        : errorsDispersion["other"] += count;
     });
     let events = {};
     EVENTS.map(event => {
@@ -35,7 +36,7 @@ const parseMetricsData = (data) => {
         current,
         previous,
         percentChange
-      }
+      };
     });
     result[period] = {
       errorsDispersion,
@@ -46,7 +47,7 @@ const parseMetricsData = (data) => {
       str: (statsData["str_" + period] || 0).toFixed(2),
       price: parseInt(statsData["avg_price_" + period] || 0),
       ...events,
-    }
+    };
   });
   return result;
 };
@@ -67,11 +68,11 @@ function* getMetricsData() {
 }
 
 function* watchGetMetrics() {
-  yield takeEvery(METRICS_GET_DATA, getMetricsData)
+  yield takeEvery(METRICS_GET_DATA, getMetricsData);
 }
 
 export default function* auth() {
   yield all([
     watchGetMetrics(),
-  ])
+  ]);
 }
